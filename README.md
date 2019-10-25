@@ -1,5 +1,10 @@
 # baby-shooter
 
-- Cliquer sur "C'est parti !" pour débuter une partie.
-- Des cibles traverses l'écran en bougeant ou pas.
-- Si une cible est touchée : 1 point !
+- Cliquer sur le bouton au centre de l'écran pour jouer.
+- Des cibles traversent l'écran.
+- Toucher une cible vaut 1 point.
+
+## TODO
+
+- Temps limité
+

@@ -27,7 +27,7 @@
       font-family: Arial;
       margin: 0;
       padding: 0;
-      background: radial-gradient(circle at center, #65BEE1, #1E3944);
+      background: radial-gradient(circle at center, #65BEE1, #1e3944);
       min-height: 100vh;
       display: flex;
       flex-flow: row nowrap;
@@ -55,23 +55,40 @@
       margin: 0;
       padding: 3rem;
       border-radius: 3rem;
-      border: 10px solid #1E3944;
-      background: #fff;
-      font-size: 3rem;
-      color: #1E3944;
+      border: 10px solid #1e3944;
+      background: #1e3944;
+      font-size: 2rem;
+      color: #fff;
       cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      animation: scale 1s ease-in infinite alternate;
+      transition: all 150ms;
     }
 
     .bs__start:hover {
-      opacity: 0.9;
+      border-radius: 10px;
     }
 
     .bs__score {
       position: fixed;
+      background: #1e3944;
+      border-radius: 3rem;
+      padding: 2rem;
       top: 2rem;
       right: 2rem;
       color: #fff;
       font-size: 5rem;
+      opacity: 0;
+      transition: all 500ms;
+    }
+
+    .bs__is-playing .bs__score {
+      opacity: 1;
+    }
+
+    .bs__is-playing .bs__start {
+      display: none;
     }
 
     .bs__targets {
@@ -88,31 +105,59 @@
       top: 0;
       left: 0;
       background: none;
-      width: 100px;
-      height: 100px;
+      width: 1px;
+      height: 1px;
       border: none;
       transform-origin: 50% 50%;
+      outline: none;
+      transition: all 300ms;
+      opacity: 0;
+    }
+
+    .bs__target.boom span {
+      /*opacity: 0;*/
+    }
+
+    .bs__is-playing .bs__target {
+      opacity: 1;
     }
 
     .bs__target span {
+      display: block;
+      cursor: pointer;
+      /* transition: all 150ms; */
+      transform: translate(0);
+      text-indent: -999999rem;
+      animation:
+        zig-zag 4s linear infinite alternate-reverse forwards;
+      animation-play-state: paused;
+    }
+
+    .bs__target span:before {
+      content: '';
       display: block;
       width: 100px;
       height: 100px;
       background: #fff;
       border-radius: 50%;
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-      border: 10px solid #1E3944;
+      border: 10px solid #1e3944;
       cursor: pointer;
-      transition: all 150ms;
-      transform: translate(0);
-      text-indent: -999999rem;
-      animation: colors 5s linear infinite alternate;
+      transition: all 300ms;
+      animation: colors 5s linear infinite alternate
     }
 
-    .bs__anim-1 span {
-      animation:
-        zig-zag 4s linear infinite normal forwards,
-        colors 5s linear infinite alternate;
+    .bs__target.boom span:before {
+      transform: rotateY(360deg) scale(2);
+      opacity: 0;
+    }
+
+    .bs__is-playing .bs__target span {
+      animation-play-state: running;
+    }
+
+    .bs__target.boom span {
+      animation-play-state: paused;
     }
 
     @keyframes zig-zag {
@@ -129,6 +174,10 @@
       60% { background-color: #ff998c; }
     }
 
+    @keyframes scale {
+      to { transform: scale(1.05) }
+    }
+
   </style>
 
 </head>
@@ -137,15 +186,14 @@
 
   <div class="bs">
 
-    <button type="button" class="bs__start">C'est parti&nbsp;!</button>
+    <button type="button" class="bs__start">Jouer</button>
 
     <div class="bs__score">
       <span class="bs__score-value" id="bs__score-value">0</span>
     </div>
 
     <div class="bs__targets">
-
-
+      <button type="button" class="bs__target" aria-label="Touche moi !"><span></span></button>
     </div>
 
   </div>
