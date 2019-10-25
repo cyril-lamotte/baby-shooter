@@ -11,6 +11,10 @@
 
   <style>
 
+    :root {
+      --primary:   #D40B01;
+      --secondary: #1e3944;
+    }
 
     html {
       box-sizing: border-box;
@@ -27,7 +31,7 @@
       font-family: Arial;
       margin: 0;
       padding: 0;
-      background: radial-gradient(circle at center, #65BEE1, #1e3944);
+      background: radial-gradient(circle at center, #A4D474, #222C18);
       min-height: 100vh;
       display: flex;
       flex-flow: row nowrap;
@@ -55,8 +59,8 @@
       margin: 0;
       padding: 3rem;
       border-radius: 3rem;
-      border: 10px solid #1e3944;
-      background: #1e3944;
+      border: 0;
+      background: var(--secondary);
       font-size: 2rem;
       color: #fff;
       cursor: pointer;
@@ -70,9 +74,13 @@
       border-radius: 10px;
     }
 
+    .bs__is-playing .bs__start {
+      display: none;
+    }
+
     .bs__score {
       position: fixed;
-      background: #1e3944;
+      background: var(--secondary);
       border-radius: 3rem;
       padding: 2rem;
       top: 2rem;
@@ -87,77 +95,31 @@
       opacity: 1;
     }
 
-    .bs__is-playing .bs__start {
-      display: none;
-    }
-
-    .bs__targets {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-
     .bs__target {
       position: absolute;
       padding: 0;
       top: 0;
       left: 0;
       background: none;
-      width: 1px;
-      height: 1px;
+      width: 100px;
+      height: 100px;
       border: none;
-      transform-origin: 50% 50%;
       outline: none;
       transition: all 300ms;
       opacity: 0;
-    }
-
-    .bs__target.boom span {
-      /*opacity: 0;*/
     }
 
     .bs__is-playing .bs__target {
       opacity: 1;
     }
 
-    .bs__target span {
-      display: block;
-      cursor: pointer;
-      /* transition: all 150ms; */
-      transform: translate(0);
-      text-indent: -999999rem;
-      animation:
-        zig-zag 4s linear infinite alternate-reverse forwards;
-      animation-play-state: paused;
+    .bs__target-inner {
+      transition: all 500ms;
     }
 
-    .bs__target span:before {
-      content: '';
-      display: block;
-      width: 100px;
-      height: 100px;
-      background: #fff;
-      border-radius: 50%;
-      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-      border: 10px solid #1e3944;
-      cursor: pointer;
-      transition: all 300ms;
-      animation: colors 5s linear infinite alternate
-    }
-
-    .bs__target.boom span:before {
-      transform: rotateY(360deg) scale(2);
-      opacity: 0;
-    }
-
-    .bs__is-playing .bs__target span {
-      animation-play-state: running;
-    }
-
-    .bs__target.boom span {
-      animation-play-state: paused;
+    /* Scale & rotate on click */
+    .bs__target.boom .bs__target-inner {
+      transform: rotateY(360deg) scale(10);
     }
 
     @keyframes zig-zag {
@@ -178,6 +140,59 @@
       to { transform: scale(1.05) }
     }
 
+
+    .ladybug {
+      position: relative;
+      display: block;
+      cursor: pointer;
+      width: 100px;
+      animation: ladybug 5s linear infinite normal forwards;
+      transform-origin: 50% 50%;
+    }
+
+    @keyframes ladybug {
+      40% { transform: translateY(-150px); }
+      50% { transform: rotateZ(180deg) translateY(0); }
+      90% { transform: rotateZ(180deg) translateY(0); }
+      100% { transform: rotateZ(0) translateY(0); }
+    }
+
+    .ladybug__head {
+      position: absolute;
+      top: -20px;
+      left: calc(50% - 20px);
+      width: 40px;
+      height: 40px;
+      background: #000;
+      border-radius: 50%;
+      animation: ladybug-head 1s linear infinite alternate-reverse forwards;
+      transform-origin: 50% 100%;
+      z-index: 1;
+    }
+
+    @keyframes ladybug-head {
+      0% { transform: rotateZ(30deg); }
+    }
+
+    .ladybug__body {
+      position: relative;
+      display: block;
+      z-index: 2;
+      width: 100px;
+      height: 100px;
+      background-color: var(--primary);
+      background-image:
+        radial-gradient(#000 12px, transparent 0),
+        radial-gradient(#000 8px, transparent 0);
+        background-position:
+        -15px 10px,
+        12px 25px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+      border: 10px solid #000;
+      transition: all 300ms;
+    }
+
   </style>
 
 </head>
@@ -192,9 +207,16 @@
       <span class="bs__score-value" id="bs__score-value">0</span>
     </div>
 
-    <div class="bs__targets">
-      <button type="button" class="bs__target" aria-label="Touche moi !"><span></span></button>
-    </div>
+    <button type="button" class="bs__target" aria-label="Touche moi !">
+      <div class="bs__target-inner">
+
+        <span class="ladybug">
+          <i class="ladybug__head"></i>
+          <i class="ladybug__body"></i>
+        </span>
+
+      </div>
+    </button>
 
   </div>
 

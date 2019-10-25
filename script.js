@@ -6,7 +6,6 @@ const bs = {}
 bs.$container = document.querySelector('.bs');
 bs.$start = bs.$container.querySelector('.bs__start');
 bs.$score = bs.$container.querySelector('.bs__score-value');
-bs.$targets = bs.$container.querySelector('.bs__targets');
 bs.$target = bs.$container.querySelector('.bs__target');
 bs.score = 0;
 bs.audio = new Audio('shoot.mp3');
@@ -40,9 +39,8 @@ bs.setTarget = () => {
   bs.$target.style.transform = `translate(${left}vw, ${top}vh)`;
 
   // Listen to click.
-  bs.$target.addEventListener('click', () => {
-    bs.shootTarget();
-  });
+  bs.$target.addEventListener('touchstart', bs.shootTarget);
+  bs.$target.addEventListener('mousedown', bs.shootTarget);
 
 }
 
