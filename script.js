@@ -8,7 +8,7 @@ bs.$start = bs.$container.querySelector('.bs__start');
 bs.$score = bs.$container.querySelector('.bs__score-value');
 bs.$targets = bs.$container.querySelector('.bs__targets');
 bs.score = 0;
-
+bs.audio = new Audio('shoot.mp3');
 
 bs.start = () => {
 
@@ -69,6 +69,8 @@ bs.shootTarget = (_$target) => {
   // Increment score.
   bs.score++;
   bs.$score.textContent = bs.score;
+
+  bs.audio.play();
 
 }
 

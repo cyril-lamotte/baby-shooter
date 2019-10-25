@@ -111,19 +111,22 @@
 
     .bs__anim-1 span {
       animation:
-        zig-zag 4s ease-in-out infinite alternate forwards,
-        colors 5s linear infinite alternate
+        zig-zag 4s linear infinite normal forwards,
+        colors 5s linear infinite alternate;
     }
 
     @keyframes zig-zag {
-      20% { transform: translateY(15vh) scale(1); }
-      80% { transform: translateX(15vw) scale(1.5); }
+      0% { transform: translate3d(0, 15vh, 0); }
+      25% { transform: translate3d(-15vw, 0, 0); }
+      50% { transform: translate3d(0, -15vh, 0); }
+      75% { transform: translate3d(15vw, 0, 0); }
+      100% { transform: translate3d(0, 15vh, 0); }
     }
 
     @keyframes colors {
-      20% { background-color: #5AFFDE; }
-      40% { background-color: #FFFA9B; }
-      60% { background-color: #FF998C; }
+      20% { background-color: #5affde; }
+      40% { background-color: #fffa9b; }
+      60% { background-color: #ff998c; }
     }
 
   </style>
