@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+  <meta charset="utf-8">
+
+  <!-- Responsive markup -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Baby shooter</title>
+
+  <style>
+
+
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+
+    body {
+      font-family: Arial;
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at center, #65BEE1, #1E3944);
+      min-height: 100vh;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      text-align: center;
+    }
+
+    .bs {
+      overflow: hidden;
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      align-content: flex-start;
+    }
+
+    .bs__start {
+      position: relative;
+      z-index: 2;
+      margin: 0;
+      padding: 3rem;
+      border-radius: 3rem;
+      border: 10px solid #1E3944;
+      background: #fff;
+      font-size: 3rem;
+      color: #1E3944;
+      cursor: pointer;
+    }
+
+    .bs__start:hover {
+      opacity: 0.9;
+    }
+
+    .bs__score {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      color: #fff;
+      font-size: 5rem;
+    }
+
+    .bs__targets {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .bs__target {
+      position: absolute;
+      padding: 0;
+      top: 0;
+      left: 0;
+      background: none;
+      width: 100px;
+      height: 100px;
+      border: none;
+      transform-origin: 50% 50%;
+    }
+
+    .bs__target span {
+      display: block;
+      width: 100px;
+      height: 100px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+      border: 10px solid #1E3944;
+      cursor: pointer;
+      transition: all 150ms;
+      transform: translate(0);
+      text-indent: -999999rem;
+      animation: colors 5s linear infinite alternate;
+    }
+
+    .bs__anim-1 span {
+      animation:
+        zig-zag 4s ease-in-out infinite alternate forwards,
+        colors 5s linear infinite alternate
+    }
+
+    @keyframes zig-zag {
+      20% { transform: translateY(15vh) scale(1); }
+      80% { transform: translateX(15vw) scale(1.5); }
+    }
+
+    @keyframes colors {
+      20% { background-color: #5AFFDE; }
+      40% { background-color: #FFFA9B; }
+      60% { background-color: #FF998C; }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="bs">
+
+    <button type="button" class="bs__start">C'est parti&nbsp;!</button>
+
+    <div class="bs__score">
+      <span class="bs__score-value" id="bs__score-value">0</span>
+    </div>
+
+    <div class="bs__targets">
+
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
