@@ -28,17 +28,10 @@ bs.start = () => {
 
   // Avoid screen draging.
   bs.$body.addEventListener('touchstart', (event) => {
-    bs.$container.classList.add('bs__is-dragging')
     event.stopPropagation();
   });
 
   bs.$body.addEventListener('touchmove', (event) => {
-    bs.$container.classList.add('bs__is-dragging')
-    event.stopPropagation();
-  });
-
-  bs.$body.addEventListener('touchend', (event) => {
-    bs.$container.classList.add('bs__is-dragging')
     event.stopPropagation();
   });
 
@@ -47,36 +40,43 @@ bs.start = () => {
 
 bs.setTarget = () => {
 
-  // Randomize target scale.
-  // const scale = Math.random() + 1;
-  // $target_item.style.transform = `scale(${scale})`;
+  // Move target to the center.
+  bs.updateTargerPosition(50, 50);
 
-  // Randomize target position.
-  const left = Math.random() * 90;
-  const top  = Math.random() * 90;
-  bs.$target.style.transform = `translate(${left}vw, ${top}vh)`;
-
-  // Listen to click.
+  // Listen to click or tap.
   bs.$target.addEventListener('touchstart', bs.shootTarget);
   bs.$target.addEventListener('mousedown', bs.shootTarget);
 
 }
 
 
+bs.updateTargerPosition = (left, top) => {
+
+  if (left === undefined) {
+
+    // Values are limited to 80% of the viewport.
+    left = Math.random() * 80;
+    top  = Math.random() * 80;
+
+  }
+
+  bs.$target.style.transform = `translate(${left}vw, ${top}vh)`;
+
+};
+
+
 bs.refreshTarget = () => {
 
   bs.$target.classList.remove('boom');
 
-  const $target_item =bs.$target.querySelector('span');
-
   // Randomize target position.
-  const left = Math.random() * 90;
-  const top  = Math.random() * 90;
-  bs.$target.style.transform = `translate(${left}vw, ${top}vh)`;
+  bs.updateTargerPosition();
 
 }
 
-bs.shootTarget = () => {
+bs.shootTarget = (event) => {
+
+  event.preventDefault();
 
   bs.$target.classList.add('boom');
 
