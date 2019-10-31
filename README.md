@@ -9,5 +9,3 @@
 - PWA
 - Temps limité
 - bs__target-inner ne devrait pas être clicable
-- Ajoute une ombre
-

@@ -719,7 +719,7 @@ html {
   -ms-flex-line-pack: start;
   align-content: flex-start
 }
-.ladybug-object .ladybug__shadow {
+.ladybug__shadow {
   content: "";
   position: absolute;
   top: 10px;
@@ -730,15 +730,16 @@ html {
   height: 100px;
   -webkit-transition: all .5s;
   -o-transition: all .5s;
-  transition: all .5s
+  transition: all .5s;
+  z-index: 1
 }
-.boom .ladybug-object .ladybug__shadow {
+.boom .ladybug__shadow {
   opacity: .2;
   -webkit-transform: scale(.5);
   -ms-transform: scale(.5);
   transform: scale(.5)
 }
-.ladybug-object .ladybug__shadow:before {
+.ladybug__shadow:before {
   content: "";
   display: block;
   border-radius: 50%;
@@ -911,10 +912,12 @@ html {
   -o-transition: all .5s;
   transition: all .5s;
   width: 100px;
-  height: 100px
+  height: 100px;
+  position: relative;
+  z-index: 2
 }
-.bs__target.boom .bs__item {
-  -webkit-transform: rotateY(360deg) scale(10);
-  transform: rotateY(360deg) scale(10)
+.boom .bs__item {
+  -webkit-transform: rotateY(360deg) scale(6);
+  transform: rotateY(360deg) scale(6)
 }
 /*# sourceMappingURL=../maps/common.css.map */

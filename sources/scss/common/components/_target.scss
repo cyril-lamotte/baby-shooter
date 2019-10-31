@@ -22,9 +22,11 @@
   transition: all 500ms;
   width: 100px;
   height: 100px;
-}
+  position: relative;
+  z-index: 2;
 
-/* Scale & rotate on click */
-.bs__target.boom .bs__item {
-  transform: rotateY(360deg) scale(10);
+  // click animation.
+  .boom & {
+    transform: rotateY(360deg) scale(6);
+  }
 }
