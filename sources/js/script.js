@@ -8,6 +8,7 @@ bs.$container = document.querySelector('.bs');
 bs.$start = bs.$container.querySelector('.bs__start');
 bs.$score = bs.$container.querySelector('.bs__score-value');
 bs.$target = bs.$container.querySelector('.bs__target');
+bs.$ladybug = bs.$container.querySelector('.ladybug');
 bs.score = 0;
 bs.audio = new Audio('assets/img/shoot.mp3');
 
@@ -44,8 +45,8 @@ bs.setTarget = () => {
   bs.updateTargerPosition(50, 50);
 
   // Listen to click or tap.
-  bs.$target.addEventListener('touchstart', bs.shootTarget);
-  bs.$target.addEventListener('mousedown', bs.shootTarget);
+  bs.$ladybug.addEventListener('touchstart', bs.shootTarget);
+  bs.$ladybug.addEventListener('mousedown', bs.shootTarget);
 
 }
 
