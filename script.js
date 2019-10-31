@@ -26,12 +26,7 @@ bs.start = () => {
 
 
   // Avoid screen draging.
-  $start.addEventListener('touchstart', (event) => {
-    bs.$container.classList.add('bs__is-dragging')
-    event.stopPropagation();
-  });
-
-  $start.addEventListener('touchend', (event) => {
+  $start.addEventListener('touchmove', (event) => {
     bs.$container.classList.add('bs__is-dragging')
     event.stopPropagation();
   });
