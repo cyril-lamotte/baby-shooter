@@ -6,6 +6,7 @@
 
 ## TODO
 
-- Temps limité
 - passer en SASS
+- PWA
+- Temps limité
 
