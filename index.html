@@ -114,8 +114,8 @@
       top: 0;
       left: 0;
       background: none;
-      width: 100px;
-      height: 100px;
+      width: 1px;
+      height: 1px;
       border: none;
       outline: none;
       transition: all 300ms;
@@ -128,31 +128,14 @@
 
     .bs__target-inner {
       transition: all 500ms;
+      width: 100px;
+      height: 100px;
     }
 
     /* Scale & rotate on click */
     .bs__target.boom .bs__target-inner {
       transform: rotateY(360deg) scale(10);
     }
-
-    @keyframes zig-zag {
-      0% { transform: translate3d(0, 15vh, 0); }
-      25% { transform: translate3d(-15vw, 0, 0); }
-      50% { transform: translate3d(0, -15vh, 0); }
-      75% { transform: translate3d(15vw, 0, 0); }
-      100% { transform: translate3d(0, 15vh, 0); }
-    }
-
-    @keyframes colors {
-      20% { background-color: #5affde; }
-      40% { background-color: #fffa9b; }
-      60% { background-color: #ff998c; }
-    }
-
-    @keyframes scale {
-      to { transform: scale(1.05) }
-    }
-
 
     .ladybug {
       position: relative;
@@ -235,7 +218,7 @@
 
   <script src="script.js?v005"></script>
 
-  <div class="bs__version">v0.0.6</div>
+  <div class="bs__version">v0.0.7</div>
 
 </body>
 </html>

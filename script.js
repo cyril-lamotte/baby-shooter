@@ -57,8 +57,15 @@ bs.updateTargerPosition = (left, top) => {
     // Values are limited to 80% of the viewport.
     left = Math.random() * 80;
     top  = Math.random() * 80;
-
   }
+
+  // Minimum coords.
+  left = Math.max(left, 20);
+  top  = Math.max(top, 20);
+
+  // Maximum coords.
+  left = Math.min(left, 80);
+  top  = Math.min(top, 80);
 
   bs.$target.style.transform = `translate(${left}vw, ${top}vh)`;
 
