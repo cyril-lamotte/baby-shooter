@@ -719,6 +719,35 @@ html {
   -ms-flex-line-pack: start;
   align-content: flex-start
 }
+.ladybug-object .ladybug__shadow {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  display: block;
+  width: 100px;
+  height: 100px;
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s
+}
+.boom .ladybug-object .ladybug__shadow {
+  opacity: .2;
+  -webkit-transform: scale(.5);
+  -ms-transform: scale(.5);
+  transform: scale(.5)
+}
+.ladybug-object .ladybug__shadow:before {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background: rgba(0,0,0,.2);
+  -webkit-animation: ladybug 5s linear infinite normal forwards;
+  animation: ladybug 5s linear infinite normal forwards
+}
 .ladybug {
   position: relative;
   display: block;
@@ -877,14 +906,14 @@ html {
 .bs__is-playing .bs__target {
   opacity: 1
 }
-.bs__target-inner {
+.bs__item {
   -webkit-transition: all .5s;
   -o-transition: all .5s;
   transition: all .5s;
   width: 100px;
   height: 100px
 }
-.bs__target.boom .bs__target-inner {
+.bs__target.boom .bs__item {
   -webkit-transform: rotateY(360deg) scale(10);
   transform: rotateY(360deg) scale(10)
 }

@@ -11,19 +11,20 @@
   outline: none;
   transition: all 300ms;
   opacity: 0;
+
+  .bs__is-playing & {
+    opacity: 1;
+  }
+
 }
 
-.bs__is-playing .bs__target {
-  opacity: 1;
-}
-
-.bs__target-inner {
+.bs__item {
   transition: all 500ms;
   width: 100px;
   height: 100px;
 }
 
 /* Scale & rotate on click */
-.bs__target.boom .bs__target-inner {
+.bs__target.boom .bs__item {
   transform: rotateY(360deg) scale(10);
 }

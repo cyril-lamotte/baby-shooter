@@ -1,4 +1,37 @@
 
+.ladybug-object {
+
+  // Shadow.
+  .ladybug__shadow {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+    display: block;
+    width: 100px;
+    height: 100px;
+    transition: all 500ms;
+
+    .boom & {
+      opacity: 0.2;
+      transform: scale(0.5);
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      background: rgba(0, 0, 0, 0.2);
+      animation: ladybug 5s linear infinite normal forwards;
+    }
+
+  }
+
+}
+
 .ladybug {
   position: relative;
   display: block;
