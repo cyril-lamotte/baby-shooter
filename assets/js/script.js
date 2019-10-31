@@ -1,4 +1,4 @@
-const bs = {}
+const bs = {};
 
 /**
  * Set up
@@ -14,16 +14,13 @@ bs.audio = new Audio('assets/img/shoot.mp3');
 
 bs.start = () => {
 
-  // Create target.
-  const $start = bs.$start;
-
   // Listen to click.
-  $start.addEventListener('click', () => {
+  bs.$start.addEventListener('click', () => {
 
     // Hide the start button / Show the counter.
-    bs.$container.classList.add('bs__is-playing')
-
+    bs.$container.classList.add('bs__is-playing');
     bs.setTarget();
+
   });
 
 
@@ -36,7 +33,7 @@ bs.start = () => {
     event.stopPropagation();
   });
 
-}
+};
 
 
 bs.setTarget = () => {
@@ -48,7 +45,7 @@ bs.setTarget = () => {
   bs.$ladybug.addEventListener('touchstart', bs.shootTarget);
   bs.$ladybug.addEventListener('mousedown', bs.shootTarget);
 
-}
+};
 
 
 bs.updateTargerPosition = (left, top) => {
@@ -80,7 +77,8 @@ bs.refreshTarget = () => {
   // Randomize target position.
   bs.updateTargerPosition();
 
-}
+};
+
 
 bs.shootTarget = (event) => {
 
@@ -99,7 +97,7 @@ bs.shootTarget = (event) => {
     bs.refreshTarget();
   }, 500);
 
-}
+};
 
 
 bs.start();

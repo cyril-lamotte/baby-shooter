@@ -1,4 +1,9 @@
 
+// Hide button on load.
+.bs__target {
+  display: none;
+}
+
 .bs__start {
   position: relative;
   z-index: 2;

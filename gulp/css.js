@@ -13,7 +13,7 @@ const sass         = require('gulp-dart-sass'),      // Compile SASS code.
       stylelint    = require('gulp-stylelint'),      // CSS code quality.
       log          = require('fancy-log');           // Logs.
 
-      var browserSync = require('browser-sync').create();
+var browserSync = require('browser-sync').create();
 
 
 /**
@@ -41,7 +41,7 @@ const sass         = require('gulp-dart-sass'),      // Compile SASS code.
     .pipe(postcss([require('postcss-normalize')()]))
     .pipe(cleanCSS({
       compatibility: '*',
-      format: 'beautify' // 'beautify' | false
+      format: false // 'beautify' | false
     }, function(details) { showCleanEffect(details); }))
     .pipe(sourcemaps.write('../../sources/maps'))
     .pipe(dest(paths.css))
