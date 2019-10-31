@@ -1,0 +1,23 @@
+
+// Wrap content in a centered layout.
+@mixin wrap {
+  max-width: $max-site-width;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+// Add paddings for small screens.
+@mixin wrap--content {
+
+  @include mq-to('lg+') {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @include mq-to('sm') {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+}

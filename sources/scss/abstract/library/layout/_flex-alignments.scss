@@ -1,0 +1,61 @@
+
+// Flex row alignment.
+// 1 line
+// X : Left
+// Y : center
+@mixin flex-row($x: flex-start, $y: center) {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: $x;
+  align-items: $y;
+
+  > * {
+    min-width: 0;
+  }
+
+}
+
+
+// Multiple columns start aligned.
+@mixin flex-x-columns {
+  @include flex-row(space-between, flex-start);
+}
+
+
+// Multiple columns justified and centered.
+@mixin flex-justify-center {
+  @include flex-row(space-between, center);
+}
+
+
+// Switch from rows to columns.
+@mixin flex-switch-to-columns {
+  flex-direction: column;
+  align-content: stretch;
+  align-items: stretch;
+}
+
+
+// Flex column alignment.
+// 1 line
+// X : Left
+// Y : center
+@mixin flex-col($x: stretch, $y: space-between) {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: $y;
+  align-items: $x;
+
+  > * {
+    min-width: 0;
+  }
+
+}
+
+
+// By default, flex item are stretched.
+// An element with that mixin will be 100% of container's height.
+@mixin flex-full-height() {
+  display: flex;
+}
+

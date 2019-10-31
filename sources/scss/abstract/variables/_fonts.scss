@@ -1,0 +1,13 @@
+
+// Font-face are defined in _fonts-declarations.scss.
+$font-stack:     (arial, helvetica, sans-serif) !default;
+$font-stack-alt: (arial, helvetica, sans-serif) !default;
+
+// Base font-size.
+$font-size: 10px !default; // rem unit : 1.2rem = 12px / 2rem = 20px
+
+// Base line-height.
+$line-height: 1.5 !default;
+
+// Font-size for body.
+$global-font-size: 1.4rem !default;

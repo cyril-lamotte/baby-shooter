@@ -1,0 +1,6 @@
+
+@use 'project' as *;
+
+.test {
+  @include block--default;
+}

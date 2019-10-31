@@ -1,0 +1,54 @@
+
+.bs__start {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 3rem;
+  border-radius: 3rem;
+  border: 0;
+  background: var(--secondary);
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  animation: scale 1s ease-in infinite alternate;
+  transition: all 150ms;
+
+  &:hover {
+    border-radius: 10px;
+  }
+
+  .bs__is-playing & {
+    display: none;
+  }
+
+}
+
+
+.bs__score {
+  position: fixed;
+  background: var(--secondary);
+  border-radius: 3rem;
+  padding: 2rem;
+  top: 2rem;
+  right: 2rem;
+  color: #fff;
+  font-size: 5rem;
+  opacity: 0;
+  transition: all 500ms;
+
+  .bs__is-playing & {
+    opacity: 1;
+  }
+
+}
+
+
+.bs__version {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+  font-size: 1rem;
+}

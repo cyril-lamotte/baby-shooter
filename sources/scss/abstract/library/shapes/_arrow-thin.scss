@@ -1,0 +1,80 @@
+
+@mixin arrow-thin($direction: 'top', $color: currentColor, $size: 1em, $thickness: 2px) {
+  position: relative;
+  width: $size/2;
+  height: $size;
+  $arrow-side: $size / 1.42;
+
+  @if ($direction == 'top' or $direction == 'bottom') {
+    width: $size;
+    height: $size/2;
+  }
+
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    height: $thickness;
+    background: $color;
+    width: $arrow-side;
+    pointer-events: none;
+  }
+
+  &:before {
+
+    @if ($direction == 'right') {
+      top: 0;
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: top left;
+    }
+    @else if ($direction == 'left') {
+      top: 0;
+      right: 0;
+      transform: rotate(-45deg);
+      transform-origin: top right;
+    }
+    @else if ($direction == 'top') {
+      bottom: 0;
+      left: 0;
+      transform: rotate(-45deg);
+      transform-origin: top left;
+    }
+    @else if ($direction == 'bottom') {
+      top: 0;
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: bottom left;
+    }
+  }
+
+  &:after {
+
+    @if ($direction == 'right') {
+      bottom: 0;
+      left: 0;
+      transform: rotate(-45deg);
+      transform-origin: bottom left;
+    }
+    @else if ($direction == 'left') {
+      bottom: 0;
+      right: 0;
+      transform: rotate(45deg);
+      transform-origin: bottom right;
+    }
+    @else if ($direction == 'top') {
+      bottom: 0;
+      right: 0;
+      transform: rotate(45deg);
+      transform-origin: top right;
+    }
+    @else if ($direction == 'bottom') {
+      top: 0;
+      right: 0;
+      transform: rotate(-45deg);
+      transform-origin: bottom right;
+    }
+
+  }
+
+}

@@ -1,0 +1,11 @@
+@charset 'utf-8';
+
+// All mixins and variables.
+@use 'abstract';
+
+// -----------------------------------------------------------------------------
+// Critical
+// Includes basic layout & most important interface components.
+// -----------------------------------------------------------------------------
+
+@use 'critical/index';

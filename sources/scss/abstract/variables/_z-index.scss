@@ -1,0 +1,14 @@
+
+// Global z-index map.
+// Use : @include z-index(header);
+$z-index: (
+  header: 100
+);
+
+@function z-index($key) {
+  @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}

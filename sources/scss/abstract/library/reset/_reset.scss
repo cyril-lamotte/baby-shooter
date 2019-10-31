@@ -1,0 +1,13 @@
+
+// Resets margins / borders / paddings.
+@mixin reset-box-model {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+// Reset list's default styles.
+@mixin reset-list {
+  list-style: none;
+  @include reset-box-model;
+}

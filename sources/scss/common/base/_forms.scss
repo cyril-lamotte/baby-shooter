@@ -1,0 +1,40 @@
+
+@use 'project/forms';
+
+// Rows.
+.options__row,
+.form__row           { @include forms.form__row; }
+.form__row--inline   { @include forms.form__row--inline; }
+
+// Labels / fieldsets.
+.label--block        { @include forms.label--block; }
+.label--inline       { @include forms.label--inline; }
+.fieldset            { @include forms.fieldset; }
+.fieldset--invisible { @include forms.fieldset--invisible; }
+
+// Helpers.
+.input--wide         { @include forms.input--wide; }
+.input--inline       { @include forms.input--inline; }
+
+// Fields.
+.input--text         { @include forms.input; }
+.input--textarea     { @include forms.textarea; }
+.input--checkbox     { @include forms.checkbox; }
+.input--radio        { @include forms.radio; }
+.input--select       { @include forms.select; }
+
+// Fields formats.
+// <form> tag should have the "form" class.
+/*
+.form {
+
+  .input--format-xx   { width: 4rem; }
+  .input--format-xxxx { width: 6rem; }
+
+}*/
+
+.form-default {
+  //@include form-default;
+}
+
+

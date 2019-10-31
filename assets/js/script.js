@@ -9,7 +9,7 @@ bs.$start = bs.$container.querySelector('.bs__start');
 bs.$score = bs.$container.querySelector('.bs__score-value');
 bs.$target = bs.$container.querySelector('.bs__target');
 bs.score = 0;
-bs.audio = new Audio('shoot.mp3');
+bs.audio = new Audio('assets/img/shoot.mp3');
 
 bs.start = () => {
 

@@ -1,0 +1,45 @@
+
+@use 'colors' as *;
+
+@mixin input--default {
+  margin: 0;
+  max-width: 100%;
+  vertical-align: middle;
+  font-family: inherit;
+  font-size: inherit;
+  appearance: none;
+
+  &::-ms-clear {
+    display: none;
+  }
+
+  &::placeholder {
+    opacity: 1;
+    font-style: normal;
+  }
+
+}
+
+
+// Inputs theme (and textareas).
+@mixin input {
+  @include input--default;
+  padding: 5px 10px;
+  border: 1px solid $inputs-borders;
+  border-radius: 0;
+  color: $base-color;
+}
+
+@mixin search-input {
+  @include input;
+  border-radius: 2rem;
+}
+
+// Textarea theme.
+@mixin textarea {
+  @include input;
+  min-height: 5em;
+  overflow: auto; // Removes vertical scrollbar on empty textarea in IE6/7/8/9.
+  vertical-align: top;
+  resize: vertical;
+}
