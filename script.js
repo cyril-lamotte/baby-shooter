@@ -24,6 +24,18 @@ bs.start = () => {
     bs.setTarget();
   });
 
+
+  // Avoid screen draging.
+  $start.addEventListener('touchstart', (event) => {
+    bs.$container.classList.add('bs__is-dragging')
+    event.stopPropagation();
+  });
+
+  $start.addEventListener('touchend', (event) => {
+    bs.$container.classList.add('bs__is-dragging')
+    event.stopPropagation();
+  });
+
 }
 
 
