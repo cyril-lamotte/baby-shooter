@@ -3,6 +3,7 @@ const bs = {}
 /**
  * Set up
  */
+bs.$body = document.querySelector('body');
 bs.$container = document.querySelector('.bs');
 bs.$start = bs.$container.querySelector('.bs__start');
 bs.$score = bs.$container.querySelector('.bs__score-value');
@@ -13,7 +14,7 @@ bs.audio = new Audio('shoot.mp3');
 bs.start = () => {
 
   // Create target.
-  const $start = document.querySelector('.bs__start');
+  const $start = bs.$start;
 
   // Listen to click.
   $start.addEventListener('click', () => {
@@ -26,7 +27,17 @@ bs.start = () => {
 
 
   // Avoid screen draging.
-  $start.addEventListener('touchmove', (event) => {
+  bs.$body.addEventListener('touchstart', (event) => {
+    bs.$container.classList.add('bs__is-dragging')
+    event.stopPropagation();
+  });
+
+  bs.$body.addEventListener('touchmove', (event) => {
+    bs.$container.classList.add('bs__is-dragging')
+    event.stopPropagation();
+  });
+
+  bs.$body.addEventListener('touchend', (event) => {
     bs.$container.classList.add('bs__is-dragging')
     event.stopPropagation();
   });
